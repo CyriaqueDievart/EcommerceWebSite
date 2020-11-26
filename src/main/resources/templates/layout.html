@@ -25,7 +25,7 @@
                 <a class="nav-link" th:href="@{/}">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" th:href="@{/client-area}">Espace Client</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" th:href="@{/logout}">Deconnexion</a>

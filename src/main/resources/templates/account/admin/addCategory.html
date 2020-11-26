@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Ajout d'une categorie</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <a class="btn btn-primary" href="/admin/category" role="button">Retour</a>
+    <div class="alert alert-success" role="alert" th:if="${addCategoryMsg != null}">
+        <p th:text="${addCategoryMsg}"></p>
+    </div>
+    <form th:action="@{addCategory}" method="post" th:object="${addCategory}" class="form-signin">
+
+        <h1 class="h3 mb-3 font-weight-normal">Ajout d'une categorie</h1>
+        <div class="input-group mb-3">
+            <label>Nom de la categorie</label>
+            <input type="text" class="form-control" th:field="*{name}" placeholder="Nom"
+                   th:errorclass="is-invalid">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+
+    </form>
+</div>
+</body>
+</html>

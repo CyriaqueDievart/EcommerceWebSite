@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/resources/**", "/webjars/**","/css/**","/js/**").permitAll()
                     .antMatchers("/").permitAll()
+                    .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()

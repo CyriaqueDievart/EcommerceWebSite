@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Admin</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenue sur le panel d'administration !</h1>
+        <p class="lead">A partir des differents liens vous pourrez controller le site.</p>
+    </div>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/category">Gestion des categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Gestion des produits</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Gestion des membres</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

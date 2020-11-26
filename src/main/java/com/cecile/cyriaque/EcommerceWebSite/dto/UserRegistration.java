@@ -1,4 +1,4 @@
-package com.cecile.cyriaque.EcommerceWebSite.entity;
+package com.cecile.cyriaque.EcommerceWebSite.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

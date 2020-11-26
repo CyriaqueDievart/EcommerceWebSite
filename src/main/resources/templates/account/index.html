@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Compte Client</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Bienvenue sur votre espace client</h1>
+            <p class="lead">Ici vous pouvez ajouter/Modifier vos produits .</p>
+            <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

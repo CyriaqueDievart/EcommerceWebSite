@@ -1,7 +1,7 @@
 package com.cecile.cyriaque.EcommerceWebSite.controllers;
 
 
-import com.cecile.cyriaque.EcommerceWebSite.entity.UserRegistration;
+import com.cecile.cyriaque.EcommerceWebSite.dto.UserRegistration;
 import com.cecile.cyriaque.EcommerceWebSite.service.UserService;
 import com.cecile.cyriaque.EcommerceWebSite.exception.InvalidTokenException;
 import com.cecile.cyriaque.EcommerceWebSite.exception.UserAlreadyExistException;

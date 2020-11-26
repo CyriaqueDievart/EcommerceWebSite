@@ -3,7 +3,7 @@ package com.cecile.cyriaque.EcommerceWebSite.service;
 import com.cecile.cyriaque.EcommerceWebSite.context.AccountVerificationEmailContext;
 import com.cecile.cyriaque.EcommerceWebSite.entity.SecureTokenEntity;
 import com.cecile.cyriaque.EcommerceWebSite.entity.UserEntity;
-import com.cecile.cyriaque.EcommerceWebSite.entity.UserRegistration;
+import com.cecile.cyriaque.EcommerceWebSite.dto.UserRegistration;
 import com.cecile.cyriaque.EcommerceWebSite.repositories.SecureTokenRepository;
 import com.cecile.cyriaque.EcommerceWebSite.repositories.UserRepository;
 import com.cecile.cyriaque.EcommerceWebSite.exception.InvalidTokenException;
