@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Créer un compte</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="alert alert-success" role="alert" th:if="${registrationMsg != null}">
+        <p th:text="${registrationMsg}"></p>
+    </div>
+    <form th:action="@{/register}" method="post" th:object="${userRegistration}" class="form-signin">
+
+        <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
+        <div class="input-group mb-3">
+            <label>Prenom</label>
+            <input type="text" class="form-control" th:field="*{firstName}" placeholder="Prenom"
+                   th:errorclass="is-invalid">
+        </div>
+        <div class="input-group mb-3">
+            <label>Nom</label>
+            <input type="text" class="form-control" th:field="*{lastName}" placeholder="Nom"
+                   th:errorclass="is-invalid">
+        </div>
+        <div class="input-group mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" th:field="*{email}" placeholder="Email"
+                   th:errorclass="is-invalid">
+        </div>
+        <div class="input-group mb-3">
+            <label>Mot de passe</label>
+            <input type="password" class="form-control" th:field="*{password}" placeholder="Mot de passe"
+                   th:errorclass="is-invalid">
+        </div>
+        <label>Votre Role</label>
+        <select th:field="*{role}" class="form-control">
+            <option th:value="'USER'" th:text="Acheteur"></option>
+            <option th:value="'SELLER'" th:text="Vendeur"></option>
+        </select>
+        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+
+    </form>
+    <a href="login" class="text-center">J'ai déja un compte</a>
+</div>
+</body>
+</html>

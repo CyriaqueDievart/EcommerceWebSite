@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>EcommerceWebSite</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <h1>Bonjour et Bienvenue sur le site de Cyriaque et Cécile</h1>
+        <p class="lead text-muted">Veuillez vous connecter pour acceder au catalogue.</p>
+        <p sec:authorize="isAuthenticated()">
+            <a th:href="@{/catalog}" class="btn btn-primary my-2">Catalogue</a>
+        </p>
+        <p sec:authorize="isAnonymous()">
+            <a th:href="@{/login}" class="btn btn-primary my-2">Connexion</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
