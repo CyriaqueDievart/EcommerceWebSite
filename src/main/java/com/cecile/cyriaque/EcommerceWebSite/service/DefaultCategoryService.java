@@ -25,4 +25,8 @@ public class DefaultCategoryService implements CategoryService {
         return categoryRepository.findAll();
     }
 
+    public void suppCategory(Long id) {
+        categoryRepository.removeById(id);
+    }
+
 }

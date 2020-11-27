@@ -10,6 +10,9 @@
 <body>
 <div layout:fragment="content">
     <a class="btn btn-primary" href="/admin/addCategory" role="button">Ajouter une categorie</a>
+    <div class="alert alert-success" role="alert" th:if="${suppCategoryMsg != null}">
+        <p th:text="${suppCategoryMsg}"></p>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -19,13 +22,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${categorys.empty}">
-            <td colspan="2"> Pas de categories </td>
-        </tr>
         <tr th:each="category : ${categorys}">
             <td><span th:text="${category.name}">Nom</span></td>
-            <td><a href="#">Editer</a></td>
-            <td><a href="#">Supprimer</a></td>
+            <td><a th:href="@{/admin/suppCategory(id=${category.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>

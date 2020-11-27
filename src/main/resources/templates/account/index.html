@@ -13,7 +13,9 @@
         <div class="container">
             <h1 class="display-4">Bienvenue sur votre espace client</h1>
             <p class="lead">Ici vous pouvez ajouter/Modifier vos produits .</p>
-            <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+            <div sec:authorize="hasRole('ADMIN')">
+                <a class="btn btn-outline-success" href="/admin" role="button">Acceder a votre espace Administrateur</a>
+            </div>
         </div>
     </div>
 </div>
