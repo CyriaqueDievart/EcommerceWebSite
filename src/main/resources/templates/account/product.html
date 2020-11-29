@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Connexion</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Espace Produit</h1>
+            <p class="lead">Ici vous pouvez gerer vos produits, supprimer ajouter ou modifier</p>
+        </div>
+    </div>
+    <a class="btn btn-primary my-2" href="/addProduct" role="button">Ajouter un produit</a>
+    <div class="row">
+        <div th:each="product : ${products}" class="card col-md-3" style="width: 18rem;">
+            <img th:src="@{/img/img.png}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 th:text="${product.name}" class="card-title">TITRE</h5>
+                <p th:text="${product.description}" class="card-text">Description.</p>
+                <div class="d-flex">
+                    <span>Prix :</span>
+                    <p th:text="${product.price}" class="card-text">prix.</p>
+                    <span>euros</span>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <a th:href="@{/admin/suppProduct(id=${product.id})}" class="btn btn-primary">Supprimer</a>
+                    <a href="#" class="btn btn-primary">Modifier</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

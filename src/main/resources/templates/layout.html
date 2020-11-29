@@ -27,6 +27,9 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/client-area}">Espace Client</a>
             </li>
+            <li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
+                <a class="nav-link" th:href="@{/admin}">Admin</a>
+            </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
                 <a class="nav-link" th:href="@{/logout}">Deconnexion</a>
             </li>

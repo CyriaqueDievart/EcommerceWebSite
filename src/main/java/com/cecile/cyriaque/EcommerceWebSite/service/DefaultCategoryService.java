@@ -29,4 +29,8 @@ public class DefaultCategoryService implements CategoryService {
         categoryRepository.removeById(id);
     }
 
+    public CategoryEntity getCategoryById(Long id){
+        return categoryRepository.findById(id).orElseThrow();
+    }
+
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="layout">
+<head>
+    <title>Ajout d'une categorie</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <a class="btn btn-primary" href="/product" role="button">Retour</a>
+    <div class="alert alert-success" role="alert" th:if="${addProductMsg != null}">
+        <p th:text="${addProductMsg}"></p>
+    </div>
+    <form th:action="@{addProduct}" method="post" th:object="${addProduct}" class="form-signin">
+
+        <h1 class="h3 mb-3 font-weight-normal">Ajout d'un produit</h1>
+        <div class="input-group mb-3">
+            <label>Nom du produit</label>
+            <input type="text" class="form-control" th:field="*{name}" placeholder="Nom"
+                   th:errorclass="is-invalid">
+        </div>
+        <div class="input-group mb-3">
+            <label>Description du produit</label>
+            <input type="text" class="form-control" th:field="*{description}" placeholder="Description"
+                   th:errorclass="is-invalid">
+        </div>
+        <div class="input-group mb-3">
+            <label>Prix</label>
+            <input type="text" class="form-control" th:field="*{price}" placeholder="prix"
+                   th:errorclass="is-invalid">
+        </div>
+        <label>Categorie</label>
+        <select th:field="*{category}" class="custom-select">
+            <option th:each="category : ${categorys}" th:value="${category.id}" th:text="${category.name}">category</option>
+        </select>
+        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+
+    </form>
+</div>
+</body>
+</html>

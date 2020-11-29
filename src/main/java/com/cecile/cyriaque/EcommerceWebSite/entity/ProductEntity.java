@@ -11,6 +11,7 @@ public class ProductEntity {
     private String name;
     private String description;
     private Long price;
+    private boolean active;
     @OneToOne
     @JoinColumn(name = "seller_id", referencedColumnName ="id")
     private UserEntity seller;
@@ -75,5 +76,13 @@ public class ProductEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

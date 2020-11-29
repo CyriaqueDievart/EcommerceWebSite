@@ -10,4 +10,5 @@ public interface CategoryService {
     public void addCategory(AddCategory addCategory);
     public List<CategoryEntity> getAllCategory();
     public void suppCategory(Long id);
+    public CategoryEntity getCategoryById(Long id);
 }

@@ -5,24 +5,16 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       layout:decorator="layout">
 <head>
-    <title>EcommerceWebSite</title>
+    <title>Vos Achats</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <ul th:each="category : ${categorys}" class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active" th:href="@{/catalog(id=${category.id})}">
-                <span th:text="${category.name}">Categorie</span>
-            </a>
-        </li>
-    </ul>
     <div class="row">
         <div th:each="product : ${products}" class="card col-md-3" style="width: 18rem;">
             <img th:src="@{/img/img.png}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 th:text="${product.name}" class="card-title">TITLE</h5>
                 <p th:text="${product.description}" class="card-text">description.</p>
-                <a th:href="@{/getProduct(id=${product.id})}" class="btn btn-primary">Acheter</a>
             </div>
         </div>
     </div>

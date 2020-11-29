@@ -45,11 +45,14 @@ public class DefaultUserService implements UserService {
     @Override
     public void register(UserRegistration user) throws UserAlreadyExistException {
         if(checkIfUserExist(user.getEmail())){
-            throw new UserAlreadyExistException("User already exists for this email");
+            throw new UserAlreadyExistException("Un utilisateur existe deja avec cette adresse mail");
         }
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(user, userEntity);
         encodePassword(user, userEntity);
+        if(userRepository.count() == 0){
+            userEntity.setRole("ADMIN");
+        }
         userRepository.save(userEntity);
         sendRegistrationConfirmationEmail(userEntity);
 
@@ -80,6 +83,7 @@ public class DefaultUserService implements UserService {
 
     @Override
     public boolean verifyUser(String token) throws InvalidTokenException {
+
         SecureTokenEntity secureToken = secureTokenService.findByToken(token);
         if(Objects.isNull(secureToken) || !StringUtils.equals(token, secureToken.getToken()) || secureToken.isExpired()){
             throw new InvalidTokenException("Token is not valid");
@@ -101,7 +105,7 @@ public class DefaultUserService implements UserService {
         UserEntity user= userRepository.findByEmail(id);
         if(user == null || BooleanUtils.isFalse(user.isAccountVerified())){
             // we will ignore in case account is not verified or account does not exists
-            throw new UnkownIdentifierException("unable to find account or account is not active");
+            throw new UnkownIdentifierException("Nous ne trouvons pas le compte, ou il n'est pas encore activé");
         }
         return user;
     }
