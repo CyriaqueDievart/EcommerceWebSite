@@ -22,6 +22,7 @@
             <div class="card-body">
                 <h5 th:text="${product.name}" class="card-title">TITLE</h5>
                 <p th:text="${product.description}" class="card-text">description.</p>
+                <p th:text="${product.price} + euros" class="card-text">description.</p>
                 <a th:href="@{/getProduct(id=${product.id})}" class="btn btn-primary">Acheter</a>
             </div>
         </div>

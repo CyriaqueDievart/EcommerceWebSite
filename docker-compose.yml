@@ -1,0 +1,21 @@
+version: "3"
+services:
+  ecommercewebsite-jdbc:
+    image: ecommercewebsite
+    ports:
+      - "8080:8080"
+    networks:
+      - ecommerce-mysql
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    networks:
+      - ecommerce-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ecommercewebsitedb
+
+networks:
+  ecommerce-mysql:
